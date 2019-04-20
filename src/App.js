@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from "react-apollo";
 
 import './App.css';
 import Header from './components/Header';
-import Post from './components/Post';
+import Posts from './components/Posts';
 
 const client = new ApolloClient({
   uri : "http://localhost:4000/graphql"
@@ -16,7 +16,7 @@ const App = () => {
       <div className="App">
         <Header />
         <section className="App-main">
-          <Post />
+          <Posts />
         </section>
       </div>
     </ApolloProvider>
