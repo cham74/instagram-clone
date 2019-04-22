@@ -49,7 +49,18 @@ class Posts extends Component {
         if(Notification.permission === 'granted' ){
           try{
             // notify user of new post
-            new Notification('Pusher Instagram Clone',{ body: `New post from ${data.post.user.nickname}`});
+            let notification = new Notification(
+              'Pusher Instagram Clone',
+              { 
+                body: `New post from ${data.post.user.nickname}`,
+                icon: 'https://img.stackshare.io/service/115/Pusher_logo.png',
+                image: `${data.post.image}`,
+              }
+            );
+            // open the website when the notification is clicked
+            notification.onclick = function(event){
+              window.open('http://localhost:3000','_blank');
+            }
           }catch(e){
             console.log('Error displaying notification');
           }
